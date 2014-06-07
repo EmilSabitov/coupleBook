@@ -22,6 +22,8 @@ var start = function () {
 
 	} );
 };
+
+
 var sendResponse = function ( action , params , cb ) {
 	var xhr = new XMLHttpRequest();
 	var p = "";
@@ -42,8 +44,9 @@ var sendResponse = function ( action , params , cb ) {
 	};
 
 	xhr.send();
-
 };
+
+
 
 var userChecked = function ( e ) {
 	to = this.selectedOptions[0].value;

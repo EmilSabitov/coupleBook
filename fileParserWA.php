@@ -16,9 +16,8 @@ if (move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)) {
     if ($handle) {
         while (($line = fgets($handle)) !== false) {
             $message = str_replace("\r\n",'', $line);
-            $pattern = '/(.{8}),\s(.{8}):\s([А-яA-z]*):\s(.*)/';
+            $pattern = '(.{8}),\s(.{8}):\s(.*):\s(.*)';
             preg_match($pattern, $message, $matches );
-
             array_push($response, $matches);
         }
     } else {

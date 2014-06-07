@@ -1,0 +1,148 @@
+@import url(http://fonts.googleapis.com/css?family=Raleway:300);
+
+
+
+body {
+    background: #fff;
+}
+
+@include keyframes( message-fade-#0580FF ) {
+0% {
+    background-color: $ #0580FF;
+    border-color: $ #0580FF;
+}
+100% {
+    background-color: $ #5BCDFF;
+    border-color: $ #5BCDFF;
+}
+}
+
+@include keyframes( message-fade-gray ) {
+0% {
+    background-color: $ #E5E4EA;
+    border-color: $ #E5E4EA;
+}
+100% {
+    background-color: $ #F5F5F5;
+    border-color: $ #F5F5F5;
+}
+}
+
+.chat {
+    margin: 0 auto;
+    padding: 1em;
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+
+    $ curve-size: 16px;
+
+    max-width: 32em;
+    overflow: hidden;
+
+dt {
+    position: relative;
+    height: 0;
+    color: transparent;
+    pointer-events: none;
+    text-indent: -1500em;
+}
+
+dd {
+    position: relative;
+    margin: 0;
+    padding: 8px 10px;
+    border-radius: 0;
+
+    line-height: 24px;
+
+
+}
+
+.in,
+.out {
+
+&::before {
+    position: absolute;
+    bottom: 0;
+    width: $ curve-size;
+    height: 2 *$ curve-size;
+    border-color: inherit;
+    border-style: solid;
+    border-radius: 50%;
+    border-width: 0 $ curve-size;
+    z-index: -1;
+}
+
+}
+
+.in + dt + .out,
+.out + dt + .in {
+    margin-top: 7px;
+}
+
+.in + dt,
+.out + dt,
+dd:last-child {
+
+&::before {
+    content: '';
+}
+
+}
+
+dt.out {
+    border-color: $ #5BCDFF;
+@include animation( message-fade-#0580FF 100 s 1 );
+}
+
+dd.in {
+    background: $ #5BCDFF;
+    border-color: $ #5BCDFF;
+    color: #fff;
+    margin-left: 2em;
+
+@include animation( message-fade-#0580FF 100 s 1 );
+}
+
+$ tail-width: $ curve-size *
+
+3
+;
+$ tail-height: $ curve-size *
+
+2
+;
+
+dt.out,
+dd.in {
+
+&::before {
+    right: -1 *$ tail-width+ $ curve-size;
+    clip: rect(0.5 *$ tail-height, 0.5 *$ tail-width, $ tail-height, 0);
+}
+
+}
+
+dt.in {
+    border-color: $ #F5F5F5;
+@include animation( message-fade-gray 100 s 1 );
+}
+
+dd.out {
+    background: $ #F5F5F5;
+    border-color: $ #F5F5F5;
+    margin-right: 2em;
+
+@include animation( message-fade-gray 100 s 1 );
+}
+
+dt.in,
+dd.out {
+
+&::before {
+    left: -1 *$ tail-width+ $ curve-size;
+    clip: rect(0.5 *$ tail-height, $ tail-width, $ tail-height, 0.5 *$ tail-width);
+}
+
+}
+}

@@ -32,13 +32,12 @@ function sendForm( form ) {
 		if (this.readyState==4 && this.status==200)
 		{
 
-//			var reg = new RegExp( '(.{8}),\s(.{8}):\s([А-яA-z]*):\s(.*)' );
+			var reg = new RegExp( '(.{8}),\s(.{8}):\s(.*):\s(.*)' );
 			var messages = JSON.parse( this.response );
 			for (var i = 0; i<messages.length; i++)
 			{
-				console.log(messages[i]);
-				//var arr = reg.exec( messages[i] );
-//				console.log( 'date: ' + arr[0] + "  message: " + arr[3] );
+				var arr = reg.exec( messages[i] );
+				console.log( 'date: ' + arr[0] + "  message: " + arr[3] );
 			}
 		}
 	};

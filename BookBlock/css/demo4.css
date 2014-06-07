@@ -23,16 +23,16 @@
 	perspective: 2000px;
 }
 
+
+
 .bb-custom-side {
 	width: 50%;
 	float: left;
 	height: 100%;
 	overflow: hidden;
 	/* Centering with flexbox */
-	display: -webkit-box;
-	display: -moz-box;
-	display: -webkit-flex;
-	display: flex;
+
+	display: inline-block;
 	-webkit-flex-direction: row;
 	flex-direction: row;
 	-webkit-flex-wrap: wrap;

@@ -6,7 +6,8 @@ window.onload = function () {
 
 };
 
-var to = "";
+var to = "",
+	messagesList = [];
 
 var start = function () {
 	sendResponse( 'getDialogs' , [] , function ( e ) {
@@ -47,7 +48,6 @@ var sendResponse = function ( action , params , cb ) {
 };
 
 
-
 var userChecked = function ( e ) {
 	to = this.selectedOptions[0].value;
 	sendResponse( 'getHistory' , [
@@ -65,7 +65,7 @@ var userChecked = function ( e ) {
 					var messBlock = document.createElement( 'div' );
 					messBlock.className = "message " + fromto;
 					messBlock.innerHTML = m.body;
-					$( '#messages' ).append( messBlock );
+					messagesList.push( messBlock );
 
 				}
 			}
@@ -77,12 +77,54 @@ var userChecked = function ( e ) {
 						fromto = 'balloonright';
 					}
 					var messBlock = document.createElement( 'div' );
-					messBlock.className =  fromto;
+					messBlock.className = fromto;
 					messBlock.innerHTML = m.body;
-					$( '#messages' ).append( messBlock );
+					messagesList.push( messBlock );
 
 				}
 			}
 		} );
+		combineBook();
 	} );
+};
+
+var combineBook = function () {
+	var book = document.getElementById( 'bb-bookblock' );
+
+	var slides = [];
+	var slide = document.createElement( 'div' );
+	slide.className = 'bb-custom-side';
+	var counter  = 0;
+	for ( var i = 0 ; i < messagesList.length ; i++ ) {
+
+		if (counter == 10) {
+			slides.push(slide);
+			slide = document.createElement( 'div' );
+			slide.className = 'bb-custom-side';
+			counter = 0;
+		}
+
+		slide.appendChild( messagesList[i] );
+		counter++;
+	}
+
+	var page = document.createElement( 'div' );
+	page.className ='bb-item';
+	//TODO create pages
+	counter = 0;
+	for (var i = 0; i< slides.length; i++)
+	{
+		if (counter ==2)
+		{
+			book.appendChild(page);
+			page = document.createElement( 'div' );
+			page.className ='bb-item';
+			counter = 0;
+		}
+		page.appendChild(slides[i]);
+		counter++;
+	}
+	Page.init();
+
+
 };

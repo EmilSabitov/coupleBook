@@ -23,7 +23,7 @@ if (isset($_GET['action'])) {
         }
         case 'getHistory' :
         {
-            $dialogs = $v->api('messages.getHistory', array('user_id' => $_GET['user_id']));
+            $dialogs = $v->api('messages.getHistory', array('user_id' => $_GET['user_id'], 'count' => '20'));
             array_push($response, $dialogs);
             break;
         }
@@ -42,5 +42,5 @@ else {
 //$mess = $v->api('messages.getHistory', array('captcha_sid' => '954391789268' , 'captcha_key' => 'vmh2vz', "user_id" => '12873402', 'count'=>'200'));
 //var_dump($mess);
 
-echo rawurlencode(json_encode($response, JSON_UNESCAPED_UNICODE));
+echo iconv('CP1252', 'UTF-8',(json_encode($response, JSON_UNESCAPED_UNICODE)));
 ?>

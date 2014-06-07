@@ -2,9 +2,11 @@ window.onload = function () {
 
 
 	//Берем переписку
-	document.getElementById('users' ).addEventListener("change",  userChecked);
+	document.getElementById( 'users' ).addEventListener( "change" , userChecked );
 
 };
+
+var to = "";
 
 var start = function () {
 	sendResponse( 'getDialogs' , [] , function ( e ) {
@@ -44,12 +46,40 @@ var sendResponse = function ( action , params , cb ) {
 };
 
 var userChecked = function ( e ) {
-	var userId = this.selectedOptions[0].value;
-	sendResponse('getHistory', [{ k: 'user_id', v : userId}] , function(e) {
-		e[0].forEach(function(m){
-			if ( m.mid) {
-				$('#messages' ).append( m.body);
+	to = this.selectedOptions[0].value;
+	sendResponse( 'getHistory' , [
+		{ k : 'user_id' , v : to}
+	] , function ( e ) {
+		e[0].forEach( function ( m ) {
+
+			if ( $( 'input[name="view"]:checked' ).val() == 'vk' ) {
+				if ( m.mid ) {
+					var fromto = "from";
+
+					if ( m.from_id == to ) {
+						fromto = 'to';
+					}
+					var messBlock = document.createElement( 'div' );
+					messBlock.className = "message " + fromto;
+					messBlock.innerHTML = m.body;
+					$( '#messages' ).append( messBlock );
+
+				}
 			}
-		});
-	});
+			else {
+				if ( m.mid ) {
+					var fromto = "balloonleft";
+
+					if ( m.from_id == to ) {
+						fromto = 'balloonright';
+					}
+					var messBlock = document.createElement( 'div' );
+					messBlock.className =  fromto;
+					messBlock.innerHTML = m.body;
+					$( '#messages' ).append( messBlock );
+
+				}
+			}
+		} );
+	} );
 };

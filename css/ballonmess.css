@@ -1,0 +1,78 @@
+
+.balloonleft {
+    display: block;
+    position: absolute;
+    left: 40px;
+    top: 10px;
+    width: 200px;
+    height: auto;
+    background: #fff;
+    padding: 10px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    moz-box-shadow: 0 0 7px #bbb;
+    -webkit-box-shadow: 0 0 7px #bbb;
+    box-shadow: 0 0 7px #bbb;
+
+}
+
+.balloonleft:before {
+    content: " ";
+    position: absolute;
+    left: -10px;
+    top: 50%;
+    margin-top: -10px;
+    z-index: 1;
+    display: block;
+    width: 0px;
+    height: 0px;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 11px solid #fff;
+}
+
+.balloonleft:after {
+    content: " ";
+    position: absolute;
+    left: 0px;
+    top: 50%;
+    margin-top: -2 px;
+    z-index: 0;
+    display: block;
+    width: 4px;
+    height: 4px;
+    moz-box-shadow: -8px 0 7px #555;
+    -webkit-box-shadow: -8px 0 7px #555;
+    box-shadow: -8px 0 7px #555;
+}
+
+
+.balloonright{
+    display:block;
+    position:absolute; right:40px; top:10px;
+    width:200px; height:auto;
+    background:#2ebbd1; padding:10px;
+    -webkit-border-radius:6px; -moz-border-radius:6px; border-radius:6px;
+    moz-box-shadow:0 0 7px #2ebbd1; -webkit-box-shadow:0 0 7px #2ebbd1; box-shadow:0 0 7px #2ebbd1;
+
+}
+.balloonright:before{
+    content:" ";
+    position:absolute; right:-10px; top:50%; margin-top:-10px; z-index:1;
+    display:block;
+    width: 0px;
+    height: 0px;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 11px solid #2ebbd1;
+}
+
+.balloonright:after{
+    content:" ";
+    position:absolute; left:0px; top:50%; margin-top:-2px; z-index:0;
+    display:block;
+    width: 4px;
+    height: 4px;
+    moz-box-shadow:-8px 0 7px #555; -webkit-box-shadow:-8px 0 7px #555; box-shadow:-8px 0 7px #555;
+}

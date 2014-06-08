@@ -32,14 +32,13 @@ var sendResponse = function ( action , params , cb ) {
 		p += '&' + e.k + '=' + e.v;
 	} );
 	xhr.open( 'GET' , 'vk.php?action=' + action + p , false );
-	var formData = new FormData();
 
 // Hack to pass bytes through unprocessed.
 	xhr.overrideMimeType( 'text/plain; charset=x-user-defined' );
 
 	xhr.onreadystatechange = function ( e ) {
 		if ( this.readyState == 4 && this.status == 200 ) {
-			//console.log( JSON.parse( this.responseText ) );
+			console.log( JSON.parse( this.responseText ) );
 			cb( JSON.parse( this.responseText ) );
 		}
 	};
@@ -125,6 +124,23 @@ var combineBook = function () {
 		counter++;
 	}
 	Page.init();
+
+
+};
+var changeBg = function(e) {
+var fP = document.getElementById('firstPage' ),
+	 img = e.getAttribute('img');
+	fP.style.backgroundImage = "url('"+img+"')";
+	fP.style.backgroundSize = 'cover';
+	fP.style.backgroundRepeat = 'no-repeat';
+
+document.getElementsByClassName('bb-custom-wrapper' )[0].style.backgroundImage = "url('"+ e.getAttribute('imgPage')+"')";
+	var items = document.getElementsByClassName('bb-item' );
+	for(var i = 1; i<items.length ; i++ ){
+			items[i].style.backgroundImage = "url('"+ e.getAttribute('imgPage')+"')";
+	}
+
+
 
 
 };

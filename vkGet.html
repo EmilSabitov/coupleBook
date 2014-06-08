@@ -35,21 +35,21 @@
 
     <div id="bb-bookblock" class="bb-bookblock">
         <div class="bb-item">
-            <div class="bb-custom-firstpage">
-                <h1>BookBlock <span>A Content Flip Plugin</span></h1>
+            <div class="bb-custom-firstpage" id="firstPage">
+                <h1>Выберите наиболее подходящую обложку <span>каждая обложка уникальна и создавалась с любовью</span></h1>
                 <nav class="codrops-demos">
-                    <a href="index.html">Demo 1</a>
-                    <a href="index2.html">Demo 2</a>
-                    <a href="index3.html">Demo 3</a>
-                    <a class="current-demo" href="index4.html">Demo 4</a>
-                    <a href="index5.html">Demo 5</a>
+                    <a href="#" img = 'images/Cover1.png' imgPage = 'images/Background1.png' onclick="changeBg(this);" >Обложка 1</a>
+                    <a href="#" img = 'images/Cover2.png' imgPage = 'images/Background1.png' onclick="changeBg(this);">Обложка 2</a>
+                    <a href="#" img = 'images/Cover3.png' imgPage = 'images/Background1.png' onclick="changeBg(this);">Обложка 3</a>
+                    <a href="#" img = 'images/Cover4.png' imgPage = 'images/Background1.png' onclick="changeBg(this);">Обложка 4</a>
+                    <!--<a href="index5.html">Demo 5</a>-->
                 </nav>
-                <nav class="codrops-nav">
-                    <a class="codrops-icon codrops-icon-prev"
-                       href="http://tympanus.net/codrops/2012/08/29/multiple-area-charts-with-d3-js/"><span>Previous Demo</span></a>
-                    <a class="codrops-icon codrops-icon-drop"
-                       href="http://tympanus.net/codrops/2012/09/03/bookblock-a-content-flip-plugin/"><span>Back to the Codrops Article</span></a>
-                </nav>
+                <!--<nav class="codrops-nav">-->
+                    <!--<a class="codrops-icon codrops-icon-prev"-->
+                       <!--href="http://tympanus.net/codrops/2012/08/29/multiple-area-charts-with-d3-js/"><span>Previous Demo</span></a>-->
+                    <!--<a class="codrops-icon codrops-icon-drop"-->
+                       <!--href="http://tympanus.net/codrops/2012/09/03/bookblock-a-content-flip-plugin/"><span>Back to the Codrops Article</span></a>-->
+                <!--</nav>-->
             </div>
             <div class="bb-custom-side">
                 <p>Создайте обложку прямо сейчас! Выберите любую обложку из предложенных! Чтобы просмотреть остальные странице, воспользуйтесь навигацией внизу страницы.</p>
@@ -182,6 +182,7 @@
         return { init : init };
 
     })();
+    Page.init();
 </script>
 <script>
 

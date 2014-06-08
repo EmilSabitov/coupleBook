@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <script type="text/javascript" src="vkget.js"></script>
-    <title> fsdfds</title>
+    <title>Создание <книги></книги></title>
     <link rel="stylesheet" href="css/vkmess.css">
     <link rel="stylesheet" href="css/ballonmess.css">
 
@@ -15,16 +15,10 @@
     <script src="BookBlock/js/modernizr.custom.js"></script>
 
     <script type="text/javascript" src="js/jquery.js"></script>
-
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
 <body>
-<button onclick="start();">Начать</button>
-<select id="users">
-    <option>Выбери</option>
-</select>
-
-<input type="radio" name="view" checked value="vk">VK
-<input type="radio" name="view" value="balloon"> Balloon
 
 <div id="messages" class="messages-wrapper">
 
@@ -35,38 +29,32 @@
 
     <div id="bb-bookblock" class="bb-bookblock">
         <div class="bb-item">
-            <div class="bb-custom-firstpage" id="firstPage">
-                <h1>Выберите наиболее подходящую обложку <span>каждая обложка уникальна и создавалась с любовью</span></h1>
+            <div class="bb-custom-firstpage">
+                <h1>Выберите наиболее подходящую обложку <span>каждая обложка уникальна и создавалась с любовью</span>
+                </h1>
                 <nav class="codrops-demos">
-                    <a href="#" img = 'images/Cover1.png' imgPage = 'images/Background1.png' onclick="changeBg(this);" >Обложка 1</a>
-                    <a href="#" img = 'images/Cover2.png' imgPage = 'images/Background1.png' onclick="changeBg(this);">Обложка 2</a>
-                    <a href="#" img = 'images/Cover3.png' imgPage = 'images/Background1.png' onclick="changeBg(this);">Обложка 3</a>
-                    <a href="#" img = 'images/Cover4.png' imgPage = 'images/Background1.png' onclick="changeBg(this);">Обложка 4</a>
+                    <a href="#" img='images/Cover1.png' imgPage='images/Background1-1.png' onclick="changeBg(this);">Обложка
+                        1</a>
+                    <a href="#" img='images/Cover2.png' imgPage='images/Background1.png' onclick="changeBg(this);">Обложка
+                        2</a>
+                    <a href="#" img='images/Cover3.png' imgPage='images/Background1.png' onclick="changeBg(this);">Обложка
+                        3</a>
+                    <a href="#" img='images/Cover4.png' imgPage='images/Background1.png' onclick="changeBg(this);">Обложка
+                        4</a>
                     <!--<a href="index5.html">Demo 5</a>-->
                 </nav>
                 <!--<nav class="codrops-nav">-->
-                    <!--<a class="codrops-icon codrops-icon-prev"-->
-                       <!--href="http://tympanus.net/codrops/2012/08/29/multiple-area-charts-with-d3-js/"><span>Previous Demo</span></a>-->
-                    <!--<a class="codrops-icon codrops-icon-drop"-->
-                       <!--href="http://tympanus.net/codrops/2012/09/03/bookblock-a-content-flip-plugin/"><span>Back to the Codrops Article</span></a>-->
+                <!--<a class="codrops-icon codrops-icon-prev"-->
+                <!--href="http://tympanus.net/codrops/2012/08/29/multiple-area-charts-with-d3-js/"><span>Previous Demo</span></a>-->
+                <!--<a class="codrops-icon codrops-icon-drop"-->
+                <!--href="http://tympanus.net/codrops/2012/09/03/bookblock-a-content-flip-plugin/"><span>Back to the Codrops Article</span></a>-->
                 <!--</nav>-->
             </div>
-            <div class="bb-custom-side">
-                <p>Создайте обложку прямо сейчас! Выберите любую обложку из предложенных! Чтобы просмотреть остальные странице, воспользуйтесь навигацией внизу страницы.</p>
+            <div class="bb-custom-side" id="firstPage">
+
             </div>
         </div>
-        <div class="bb-item">
 
-            <div class="bb-custom-side">
-                <p>Croissant pudding gingerbread gummi bears marshmallow halvah. Wafer donut croissant. Cookie muffin
-                    jelly beans pie croissant croissant candy canes jelly marshmallow.</p>
-            </div>
-            <div class="bb-custom-side">
-                <p>Croissant pudding gingerbread gummi bears marshmallow halvah. Wafer donut croissant. Cookie muffin
-                    jelly beans pie croissant croissant candy canes jelly marshmallow.</p>
-            </div>
-
-        </div>
         <!--<div class="bb-item">-->
         <!--<div class="bb-custom-side">-->
         <!--<p>Croissant pudding gingerbread gummi bears marshmallow halvah. Wafer donut croissant. Cookie muffin jelly beans pie croissant croissant candy canes jelly marshmallow.</p>-->
@@ -187,6 +175,185 @@
 <script>
 
 </script>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+            </div>
+            <div class="modal-body">
+                <!--Вставь форму СЮДАААА!-->
+                <form class="form-horizontal">
+                    <fieldset>
+
+                        <!-- Form Name -->
+                        <legend>Оформление заказа, единственной в мире книги!</legend>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="textinput">Имя получателя:</label>
+
+                            <div class="col-md-5">
+                                <input id="textinput" name="textinput" type="text" placeholder=""
+                                       class="form-control input-md" required="">
+                                <span class="help-block">Например: Дмитрий</span>
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="lastname">Фамилия получателя:</label>
+
+                            <div class="col-md-5">
+                                <input id="lastname" name="lastname" type="text" placeholder=""
+                                       class="form-control input-md">
+                                <span class="help-block">Например: Медведев</span>
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="country">Страна:</label>
+
+                            <div class="col-md-5">
+                                <input id="country" name="country" type="text" placeholder="Российская федерация"
+                                       class="form-control input-md" required="">
+                                <span class="help-block">В данный момент мы работаем только по России</span>
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="index">Почтовый индекс:</label>
+
+                            <div class="col-md-5">
+                                <input id="index" name="index" type="text" placeholder="" class="form-control input-md"
+                                       required="">
+                                <span class="help-block">Например: 119019 </span>
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="city">Город:</label>
+
+                            <div class="col-md-5">
+                                <input id="city" name="city" type="text" placeholder="" class="form-control input-md"
+                                       required="">
+                                <span class="help-block">Например: Москва</span>
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="street">Улица:</label>
+
+                            <div class="col-md-5">
+                                <input id="street" name="street" type="text" placeholder=""
+                                       class="form-control input-md" required="">
+                                <span class="help-block">Например: Красная площадь</span>
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="Hnmbr">Номер дома</label>
+
+                            <div class="col-md-2">
+                                <input id="Hnmbr" name="Hnmbr" type="text" placeholder="" class="form-control input-md"
+                                       required="">
+                                <span class="help-block">Например: 1</span>
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="KVnmbr">Номер квартиры:</label>
+
+                            <div class="col-md-2">
+                                <input id="KVnmbr" name="KVnmbr" type="text" placeholder=""
+                                       class="form-control input-md" required="">
+                                <span class="help-block">Например: 777</span>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-horizontal">
+                    <fieldset>
+
+                        <!-- Form Name -->
+                        <legend>Осталось всего пара шагов</legend>
+
+
+
+
+                        <!-- Select Basic -->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="users">Select Basic</label>
+                            <div class="col-md-6">
+                                <select id="users" name="users" class="form-control">
+                                    <option>Выбери</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Multiple Radios -->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="radios">Multiple Radios</label>
+                            <div class="col-md-4">
+                                <div class="radio">
+                                    <label for="radios-0">
+                                        <input type="radio" name="view" id="radios-0" value="vk" checked="checked">
+                                        В виде iMessage
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label for="radios-1">
+                                        <input type="radio" name="view" id="radios-1" value="balloon">
+                                        В виде облачков
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Button -->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="singlebutton"></label>
+                            <div class="col-md-4">
+                                <button id="singlebutton" name="singlebutton" data-dismiss="modal" class="btn btn-success">Создать книгу</button>
+                            </div>
+                        </div>
+
+                    </fieldset>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
 
 
 </body>

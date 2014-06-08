@@ -3,7 +3,8 @@ window.onload = function () {
 
 	//Берем переписку
 	document.getElementById( 'users' ).addEventListener( "change" , userChecked );
-
+	$('#myModal2' ).modal('show');
+	start();
 };
 
 var to = "",
@@ -12,12 +13,19 @@ var to = "",
 var start = function () {
 	sendResponse( 'getDialogs' , [] , function ( e ) {
 		e[0].forEach( function ( d ) {
-
 			if ( d.uid ) {
 				var o = new Option( d.uid , d.uid );
+				sendResponse( 'getUser' , [
+					{ k : 'user_ids' , v : d.uid}
+				] , function ( user ) {
+					if ( user[0][0] ) {
+						$( o ).html( user[0][0].first_name + " " + user[0][0].last_name );
+						$( '#users' ).append( o );
+					}
+				} );
 				//TODO вставить сюда забиратель имен
-				$( o ).html( d.uid );
-				$( '#users' ).append( o );
+
+
 			}
 		} );
 
@@ -93,11 +101,11 @@ var combineBook = function () {
 	var slides = [];
 	var slide = document.createElement( 'div' );
 	slide.className = 'bb-custom-side';
-	var counter  = 0;
+	var counter = 0;
 	for ( var i = 0 ; i < messagesList.length ; i++ ) {
 
-		if (counter == 10) {
-			slides.push(slide);
+		if ( counter == 10 ) {
+			slides.push( slide );
 			slide = document.createElement( 'div' );
 			slide.className = 'bb-custom-side';
 			counter = 0;
@@ -108,39 +116,39 @@ var combineBook = function () {
 	}
 
 	var page = document.createElement( 'div' );
-	page.className ='bb-item';
+	page.className = 'bb-item';
 	//TODO create pages
 	counter = 0;
-	for (var i = 0; i< slides.length; i++)
-	{
-		if (counter ==2)
-		{
-			book.appendChild(page);
+	for ( var i = 0 ; i < slides.length ; i++ ) {
+		if ( counter == 2 ) {
+			book.appendChild( page );
 			page = document.createElement( 'div' );
-			page.className ='bb-item';
+			page.className = 'bb-item';
 			counter = 0;
 		}
-		page.appendChild(slides[i]);
+		page.appendChild( slides[i] );
 		counter++;
 	}
+
+
+	book.innerHTML+= '<div class="bb-item"><div class="bb-custom-side"><button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">КУПИТЬ! EVERYTHING IS AWESOMEEEEE!</button></div><div class="bb-custom-side"><p>Croissant pudding gingerbread gummi bears marshmallow halvah. Wafer donut croissant. Cookie muffinjelly beans pie croissant croissant candy canes jelly marshmallow.</p></div></div>';
 	Page.init();
 
 
 };
-var changeBg = function(e) {
-var fP = document.getElementById('firstPage' ),
-	 img = e.getAttribute('img');
-	fP.style.backgroundImage = "url('"+img+"')";
-	fP.style.backgroundSize = 'cover';
+var changeBg = function ( e ) {
+	var fP = document.getElementById( 'firstPage' ),
+		img = e.getAttribute( 'img' );
+	fP.style.backgroundImage = "url('" + img + "')";
+	fP.style.backgroundSize = 'contain';
 	fP.style.backgroundRepeat = 'no-repeat';
+	fP.style.backgroundPosition = 'center';
 
-document.getElementsByClassName('bb-custom-wrapper' )[0].style.backgroundImage = "url('"+ e.getAttribute('imgPage')+"')";
-	var items = document.getElementsByClassName('bb-item' );
-	for(var i = 1; i<items.length ; i++ ){
-			items[i].style.backgroundImage = "url('"+ e.getAttribute('imgPage')+"')";
+	document.getElementsByClassName( 'bb-custom-wrapper' )[0].style.backgroundImage = "url('" + e.getAttribute( 'imgPage' ) + "')";
+	var items = document.getElementsByClassName( 'bb-item' );
+	for ( var i = 1 ; i < items.length ; i++ ) {
+		items[i].style.backgroundImage = "url('" + e.getAttribute( 'imgPage' ) + "')";
 	}
-
-
 
 
 };

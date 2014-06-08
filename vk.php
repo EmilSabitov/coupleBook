@@ -12,18 +12,19 @@ if (isset($_GET['action'])) {
     switch ($_GET['action']) {
         case 'getDialogs':
         {
-            $dialogs = $v->api('messages.getDialogs', array('captcha_sid' => '954391789268', 'captcha_key' => 'vmh2vz', "preview_length" => '1', 'count' => '2'));
+            $dialogs = $v->api('messages.getDialogs', array('captcha_sid' => '954391789268', 'captcha_key' => 'vmh2vz', "preview_length" => '1', 'count' => '20'));
             array_push($response, $dialogs);
             break;
         }
         case 'getUser' :
         {
-            $dialogs = $v->api('users.get', array('user_ids' => $_GET['user_id']));
+            $user = $v->api('users.get', array('user_ids' => array($_GET['user_ids'])));
+            array_push($response, $user);
             break;
         }
         case 'getHistory' :
         {
-            $dialogs = $v->api('messages.getHistory', array('user_id' => $_GET['user_id'], 'count' => '100'));
+            $dialogs = $v->api('messages.getHistory', array('user_id' => $_GET['user_id'], 'count' => '40'));
             array_push($response, $dialogs);
             break;
         }

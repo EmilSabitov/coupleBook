@@ -32,11 +32,30 @@ function sendForm( form ) {
 		if (this.readyState==4 && this.status==200)
 		{
 
-			var reg = new RegExp( '(.{8}),\s(.{8}):\s(.*):\s(.*)' );
+
 			var messages = JSON.parse( this.response );
+
+
+
+
+
+
+
 			for (var i = 0; i<messages.length; i++)
 			{
-				var arr = reg.exec( messages[i] );
+
+				var re = new RegExp(/([\s\S]{8}),\s([\s\S]{8}):\s([\s\S]*):\s([\s\S]*)/);
+
+//				var m;
+//
+//				while ((m = re.exec(messages[i])) != null) {
+//					if (m.index === re.lastIndex) {
+//						re.lastIndex++;
+//					}
+//					// View your result using the m-va riable.
+//					// eg m[0] etc.
+//				}
+				var arr = re.exec(messages[i]);
 				console.log( 'date: ' + arr[0] + "  message: " + arr[3] );
 			}
 		}

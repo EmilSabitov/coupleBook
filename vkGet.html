@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <script type="text/javascript" src="vkget.js"></script>
-    <title>Создание <книги></книги></title>
+    <title>Создание
+        <книги></книги>
+    </title>
     <link rel="stylesheet" href="css/vkmess.css">
     <link rel="stylesheet" href="css/ballonmess.css">
 
@@ -291,14 +293,12 @@
 </div>
 
 
-
-
 <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                <h4 class="modal-title" id="myModalLabel">Начинаем</h4>
             </div>
             <div class="modal-body">
                 <div class="form-horizontal">
@@ -308,33 +308,69 @@
                         <legend>Осталось всего пара шагов</legend>
 
 
-
-
-                        <!-- Select Basic -->
                         <div class="form-group">
-                            <label class="col-md-4 control-label" for="users">Select Basic</label>
+                            <label class="col-md-4 control-label" for="social">Выберите источник</label>
+
                             <div class="col-md-6">
-                                <select id="users" name="users" class="form-control">
-                                    <option>Выбери</option>
+                                <select id="social" name="social" class="form-control">
+                                    <option value="-1">Выберите</option>
+                                    <option value="0">vk.com</option>
+                                    <option value="1">whatsapp</option>
                                 </select>
                             </div>
                         </div>
 
-                        <!-- Multiple Radios -->
-                        <div class="form-group">
-                            <label class="col-md-4 control-label" for="radios">Multiple Radios</label>
-                            <div class="col-md-4">
-                                <div class="radio">
-                                    <label for="radios-0">
-                                        <input type="radio" name="view" id="radios-0" value="vk" checked="checked">
-                                        В виде iMessage
-                                    </label>
+
+                        <div id="whatsapp" style="display: none;">
+                            <form  action="fileParserWA.php" method="post">
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="userfile">Выберите файл</label>
+                                    <div class="col-md-4">
+                                        <input id="userfile" name="userfile" class="input-file" type="file">
+                                    </div>
                                 </div>
-                                <div class="radio">
-                                    <label for="radios-1">
-                                        <input type="radio" name="view" id="radios-1" value="balloon">
-                                        В виде облачков
-                                    </label>
+
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="savefile"></label>
+
+                                    <div class="col-md-4">
+                                        <input type="submit" name="savefile" onclick="return sendForm(this.form);">
+
+                                    </div>
+                                </div>
+
+                                </form>
+                        </div>
+
+                        <div id="vk" style="display: none;">
+                            <!-- Select Basic -->
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="users">Выберите собеседника</label>
+
+                                <div class="col-md-6">
+                                    <select id="users" name="users" class="form-control">
+                                        <option>Выбери</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Multiple Radios -->
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="radios">Multiple Radios</label>
+
+                                <div class="col-md-4">
+                                    <div class="radio">
+                                        <label for="radios-0">
+                                            <input type="radio" name="view" id="radios-0" value="vk" checked="checked">
+                                            В виде iMessage
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label for="radios-1">
+                                            <input type="radio" name="view" id="radios-1" value="balloon">
+                                            В виде облачков
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -342,8 +378,11 @@
                         <!-- Button -->
                         <div class="form-group">
                             <label class="col-md-4 control-label" for="singlebutton"></label>
+
                             <div class="col-md-4">
-                                <button id="singlebutton" name="singlebutton" data-dismiss="modal" class="btn btn-success">Создать книгу</button>
+                                <button id="singlebutton" name="singlebutton" data-dismiss="modal"
+                                        class="btn btn-success">Создать книгу
+                                </button>
                             </div>
                         </div>
 
